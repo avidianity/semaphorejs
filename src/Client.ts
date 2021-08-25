@@ -71,7 +71,7 @@ export class Client {
 	}
 
 	async balance() {
-		const { data } = await this.axios.get<Account>(`?apikey=${this.key}`);
+		const { data } = await this.axios.get<Account>(`/account?apikey=${this.key}`);
 		return data;
 	}
 
@@ -82,7 +82,7 @@ export class Client {
 			throw new Error('API is limited to sending to 1000 recipients at a time');
 		}
 
-		const { data } = await this.axios.post<MessageResponse[]>(`?apikey=${this.key}`, {
+		const { data } = await this.axios.post<MessageResponse[]>(`/messages?apikey=${this.key}`, {
 			message,
 			number: sendables.join(','),
 			sendername: this.senderName,
