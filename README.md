@@ -25,7 +25,7 @@ yarn add semaphorejs
 Sending Messages
 
 ```javascript
-import { Client } from 'semaphorejs';
+import { Client } from '@avidian/semaphorejs';
 
 const client = new Client('your api key', {/* options */});
 
