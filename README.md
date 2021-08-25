@@ -11,13 +11,13 @@ Note: This only works on nodejs, using this on the browser will not work.
 npm
 
 ```sh
-npm install semaphorejs
+npm install @avidian/semaphorejs
 ```
 
 yarn
 
 ```sh
-yarn add semaphorejs
+yarn add @avidian/semaphorejs
 ```
 
 ## Basic Usage
