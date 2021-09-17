@@ -1,4 +1,6 @@
 import { AxiosInstance } from 'axios';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 export declare type ClientOptions = {
     senderName?: string;
     baseUrl?: string;

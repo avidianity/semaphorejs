@@ -1,5 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import { URLSearchParams } from 'url';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 export type ClientOptions = {
 	senderName?: string;
