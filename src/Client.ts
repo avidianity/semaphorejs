@@ -62,7 +62,7 @@ export class Client {
 
 	constructor(key: string, options?: ClientOptions) {
 		this.axios = axios.create({
-			baseURL: options?.baseUrl || 'https://api.semaphore.com/api/v4',
+			baseURL: options?.baseUrl || 'https://api.semaphore.co/api/v4',
 		});
 
 		if (options?.senderName) {
