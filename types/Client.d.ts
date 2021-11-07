@@ -49,7 +49,7 @@ export declare type User = {
 };
 export declare class Client {
     protected axios: AxiosInstance;
-    protected senderName: string;
+    protected senderName: string | null;
     protected key: string;
     constructor(key: string, options?: ClientOptions);
     balance(): Promise<Account>;

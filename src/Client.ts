@@ -57,7 +57,7 @@ export type User = {
 
 export class Client {
 	protected axios: AxiosInstance;
-	protected senderName = 'semaphore';
+	protected senderName: string | null;
 	protected key: string;
 
 	constructor(key: string, options?: ClientOptions) {
@@ -65,9 +65,7 @@ export class Client {
 			baseURL: options?.baseUrl || 'https://api.semaphore.co/api/v4',
 		});
 
-		if (options?.senderName) {
-			this.senderName = options.senderName;
-		}
+		this.senderName = options?.senderName || null;
 
 		this.key = key;
 	}
@@ -84,11 +82,17 @@ export class Client {
 			throw new Error('API is limited to sending to 1000 recipients at a time');
 		}
 
-		const { data } = await this.axios.post<MessageResponse[]>(`/messages?apikey=${this.key}`, {
+		const payload: Record<string, any> = {
 			message,
 			number: sendables.join(','),
-			sendername: this.senderName,
-		});
+			apikey: this.key,
+		};
+
+		if (this.senderName) {
+			payload.sendername = this.senderName;
+		}
+
+		const { data } = await this.axios.post<MessageResponse[]>(`/messages`, payload);
 
 		return data;
 	}
